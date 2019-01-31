@@ -16,5 +16,5 @@ This project analyzes data from the city of Denver, and can be found [here](http
 * System environment
   * Append the repo src folder to PYTHONPATH to allow module imports
   * Create environment variable that points to config file so python can find it.
-  * Install jupyter notebook and show people how to run it (Windows vs. Mac vs. Linux)
+  * Install Jupyter notebook
 
