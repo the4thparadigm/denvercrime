@@ -10,5 +10,11 @@ This project analyzes data from the city of Denver, and can be found [here](http
 ## Getting started
 * Make sure you have Git and Python3 installed 
 * Clone this repo 
-* Acquire all requirements (see requirements.txt)
 * Create your own branch to work on
+* Unzip data into denvercrime/data/raw/
+* Create python virtual environment and install packages from requirements.txt
+* System environment
+  * Append the repo src folder to PYTHONPATH to allow module imports
+  * Create environment variable that points to config file so python can find it.
+  * Install jupyter notebook and show people how to run it (Windows vs. Mac vs. Linux)
+
