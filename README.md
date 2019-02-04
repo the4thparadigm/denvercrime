@@ -5,7 +5,9 @@ Colorado State University | Fort Collins, Colorado
 
 ## Data
 This project analyzes data from the city of Denver, and can be found [here](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-crime). The data are also hosted on [kaggle](https://www.kaggle.com/paultimothymooney/denver-crime-data). From denvergov.org:
+
 >This dataset includes criminal offenses in the City and County of Denver for the previous five calendar years plus the current year to date. The data is based on the National Incident Based Reporting System (NIBRS) which includes all victims of person crimes and all crimes within an incident. The data is dynamic, which allows for additions, deletions and/or modifications at any time, resulting in more accurate information in the database. Due to continuous data entry, the number of records in subsequent extractions are subject to change. Crime data is updated Monday through Friday.
+
 Because the data are updated regularly, we must choose a snapshot to ensure that everyone has the same data. We will be using version 25, which can be accessed at https://www.kaggle.com/paultimothymooney/denver-crime-data/version/25. Make sure you download this version, NOT the latest version.
 
 ## Getting started
