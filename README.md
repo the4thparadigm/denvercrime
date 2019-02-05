@@ -18,5 +18,18 @@ Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhike
 * System environment
   * Append the repo src folder to PYTHONPATH to allow module imports
   * Create environment variable that points to config file so python can find it
-* Run `chmod 700 download.sh` to give permission to the download script
-* Run `download.sh` to download the data and put them in the correct location
+* Create directories for the data.
+  * In a terminal, navigate to the project directory
+  * `mkdir data`
+  * `mkdir data/raw
+* Download the data from kaggle
+  * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
+  * In a terminal, navigate to your home directory
+  * `mkdir .kaggle`
+  * `mv Downloads/kaggle.json .kaggle/kaggle.json`
+  * Navigate to the project directory
+  * `mv denver-crime-data.zip data/raw`
+  * `unzip denver-crime-data.zip`
+  * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
+
+  
