@@ -1,0 +1,4 @@
+.gitignore
+data
+notebooks/.ipynb_checkpoints
+notebooks/starter
