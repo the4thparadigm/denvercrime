@@ -28,8 +28,6 @@ Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhike
   * `mkdir .kaggle`
   * `mv Downloads/kaggle.json .kaggle/kaggle.json`
   * Navigate to the project directory
+  * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
   * `mv denver-crime-data.zip data/raw`
   * `unzip denver-crime-data.zip`
-  * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
-
-  
