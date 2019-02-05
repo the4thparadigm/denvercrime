@@ -11,11 +11,23 @@ This project analyzes data from the city of Denver, and can be found [here](http
 Because the data are updated regularly, we must choose a snapshot to ensure that everyone has the same data. We will be using version 25, which can be accessed at https://www.kaggle.com/paultimothymooney/denver-crime-data/version/25. Make sure you download this version, NOT the latest version.
 
 ## Getting started
-Please consult the [*Project set up*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
+Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
 * Clone this repo 
 * Create your own branch to work on
-* Unzip data into denvercrime/data/raw/
 * Install packages from requirements.txt
 * System environment
   * Append the repo src folder to PYTHONPATH to allow module imports
   * Create environment variable that points to config file so python can find it
+* Create directories for the data.
+  * In a terminal, navigate to the project directory
+  * `mkdir data`
+  * `mkdir data/raw`
+* Download the data from kaggle
+  * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
+  * In a terminal, navigate to your home directory
+  * `mkdir .kaggle`
+  * `mv Downloads/kaggle.json .kaggle/kaggle.json`
+  * Navigate to the project directory
+  * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
+  * `mv denver-crime-data.zip data/raw`
+  * `unzip denver-crime-data.zip`
