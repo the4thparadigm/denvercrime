@@ -21,7 +21,7 @@ Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhike
 * Create directories for the data.
   * In a terminal, navigate to the project directory
   * `mkdir data`
-  * `mkdir data/raw
+  * `mkdir data/raw`
 * Download the data from kaggle
   * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
   * In a terminal, navigate to your home directory
