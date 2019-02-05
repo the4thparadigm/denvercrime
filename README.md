@@ -31,3 +31,6 @@ Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhike
   * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
   * `mv denver-crime-data.zip data/raw`
   * `unzip denver-crime-data.zip`
+  
+## .gitignore
+This repository provides a basic .gitignore. If you've never used a .gitignore, it's simply a list of directories and files that we want to Git to ignore when it performs its magic. If you have any files in your project directory that you don't want included in version control, add them to the .gitignore. For example, if you created a notebook for your own personal exploration as notebooks/exp.ipynb, you would add notebooks/exp.ipynb to the .gitignore and Git would ignore this file when you make changes to it. The .gitignore in this repo lists the things that come with the repo that should be ignored (like the .gitignore).
