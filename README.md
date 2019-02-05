@@ -14,8 +14,9 @@ Because the data are updated regularly, we must choose a snapshot to ensure that
 Please consult the [*Project set up*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
 * Clone this repo 
 * Create your own branch to work on
-* Unzip data into denvercrime/data/raw/
 * Install packages from requirements.txt
 * System environment
   * Append the repo src folder to PYTHONPATH to allow module imports
   * Create environment variable that points to config file so python can find it
+* Run `chmod 700 download.sh` to give permission to the download script
+* Run `download.sh` to download the data and put them in the correct location
