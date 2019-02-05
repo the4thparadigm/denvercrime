@@ -11,7 +11,7 @@ This project analyzes data from the city of Denver, and can be found [here](http
 Because the data are updated regularly, we must choose a snapshot to ensure that everyone has the same data. We will be using version 25, which can be accessed at https://www.kaggle.com/paultimothymooney/denver-crime-data/version/25. Make sure you download this version, NOT the latest version.
 
 ## Getting started
-Please consult the [*Project set up*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
+Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
 * Clone this repo 
 * Create your own branch to work on
 * Install packages from requirements.txt
