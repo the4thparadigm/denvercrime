@@ -1,4 +1,5 @@
 .gitignore
 data
+output
 notebooks/.ipynb_checkpoints
 notebooks/starter
