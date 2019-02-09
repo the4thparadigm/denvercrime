@@ -1,0 +1,9 @@
+dirs:
+    projectroot: ''
+    data: 
+        raw: ''
+        processed: ''
+    notebooks: ''
+    src: ''
+    output: ''
+    logs: ''
