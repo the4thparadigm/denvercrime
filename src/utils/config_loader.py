@@ -11,7 +11,7 @@ import yaml
 # ================================================
 
 projectpath = os.environ['DENVERCRIMEROOT'] 
-config_path = os.path.join(projectpath, "config") 
+config_path = os.path.join(projectpath, "config", "")
 
 # class that lets us access config parameters using conf.param.param2 instead of conf["param"]["param2"]
 class Configuration:

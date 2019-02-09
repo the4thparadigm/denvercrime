@@ -1,11 +1,14 @@
 # ============ Base imports ======================
 import os
+import pwd
 import argparse
 import traceback
+import logging 
 # ====== External package imports ================
 # ====== Internal package imports ================
 # ============== Logging  ========================
-import logging
+# Not applicable for this script, since it 
+# doesn't directly do any logging
 # =========== Config File Loading ================
 # Not applicable for this script, since it's 
 # being called by other scripts
@@ -17,7 +20,7 @@ class IndentLogger(logging.LoggerAdapter):
     """
     use this adapter with:
         import logging
-        src.modules.utils.setup import setup, IndentLogger
+        denvercrime.src.modules.utils.setup import setup, IndentLogger
         logger = IndentLogger(logging.getLogger(''), {})
 
         setup("logger_name")  # Runs setup script, including setting up logger
@@ -34,10 +37,20 @@ class IndentLogger(logging.LoggerAdapter):
     def process(self, msg, kwargs):
         return "{}{}".format('-' * self.indent() + "|", msg), kwargs
 
+# function to run any function and catch any exceptions in the logger before raising them
+def run_and_catch_exceptions(logger, f, *args, **kwargs):
+    try:
+        result = f(*args, **kwargs)
+    except Exception as e:
+        exc_info = sys.exc_info()
+        logger.error("".join(traceback.format_exception(*exc_info)))
+        raise e
+    return result
+
 
 # method run in every standalone script which sets up logging
 def setup(logname):
-    from src.modules.utils.config_loader import get_config
+    from denvercrime.src.utils.config_loader import get_config
     conf = get_config()
     # associate command line arguments with logging levels
     log_dict = {'debug': logging.DEBUG,
@@ -53,7 +66,7 @@ def setup(logname):
     args, extra_args = parser.parse_known_args()
 
     # create logging file if doesn't exist
-    log_file_path = os.path.join(conf.dirs.logs, os.getlogin() + "_" + logname + ".log")
+    log_file_path = os.path.join(conf.dirs.logs, pwd.getpwuid(os.getuid())[0] + "_" + logname + ".log")
     if not os.path.exists(conf.dirs.logs):
         os.makedirs(conf.dirs.logs)
     if not os.path.exists(log_file_path):
@@ -63,7 +76,7 @@ def setup(logname):
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(levelname)-4s|%(message)s',
                         datefmt='%Y/%m/%d %H:%M:%S',
-                        filename=os.path.join(conf.dirs.logs, os.getlogin() + "_" + logname + ".log"),
+                        filename=os.path.join(log_file_path),
                         filemode='a')
     # set up logging to console (only do this if there are no handlers)
     if len(logging.getLogger('').handlers) < 2:
