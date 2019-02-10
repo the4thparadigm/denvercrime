@@ -14,14 +14,11 @@ Because the data are updated regularly, we must choose a snapshot to ensure that
 Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
 * Clone this repo 
 * Create your own branch to work on
-* Install packages from requirements.txt
+* Create a virtual environment by running `virtualenv venv` in the project root directory. Activate it with `source venv\bin\activate`
+* Install packages from requirements.txt by running `pip3 install -r requirements.txt` in the project root directory
 * System environment
   * Append the repo src folder to PYTHONPATH to allow module imports
   * Create environment variable that points to config file so python can find it
-* Create directories for the data.
-  * In a terminal, navigate to the project directory
-  * `mkdir data`
-  * `mkdir data/raw`
 * Download the data from kaggle
   * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
   * In a terminal, navigate to your home directory
