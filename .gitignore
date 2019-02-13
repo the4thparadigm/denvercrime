@@ -1,7 +1,0 @@
-data
-output
-notebooks/.ipynb_checkpoints
-notebooks/starter
-*.pyc
-*.yaml
-*.yml
