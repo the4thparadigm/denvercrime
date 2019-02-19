@@ -40,16 +40,16 @@ echo "export CONFIGYAML=config/config.yml.template" >> source_me.sh
 source source_me.sh
 ```
 6. Download the data from kaggle
-  * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
-  * Copy the `kaggle.json` file to `$HOME/.kaggle`
-  ```bash
-  mkdir -f $HOME/.kaggle
-  mv $HOME/Downloads/kaggle.json $HOME/.kaggle/kaggle.json
-  chmod 600 $HOME/.kaggle/kaggle.json  # only you can read/write to it
-  ```
-  * Navigate to the project directory and un-zip the data
-  ```bash
-  kaggle datasets download -d paultimothymooney/denver-crime-data/version/25
-  mv denver-crime-data.zip data/raw
-  unzip denver-crime-data.zip`
-  ```
+ * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
+ * Copy the `kaggle.json` file to `$HOME/.kaggle`
+ ```bash
+ mkdir -f $HOME/.kaggle
+ mv $HOME/Downloads/kaggle.json $HOME/.kaggle/kaggle.json
+ chmod 600 $HOME/.kaggle/kaggle.json  # only you can read/write to it
+ ```
+ * Navigate to the project directory and un-zip the data
+ ```bash
+ kaggle datasets download -d paultimothymooney/denver-crime-data/version/25
+ mv denver-crime-data.zip data/raw
+ unzip denver-crime-data.zip`
+ ```
