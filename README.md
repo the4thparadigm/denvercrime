@@ -12,26 +12,26 @@ Because the data are updated regularly, we must choose a snapshot to ensure that
 
 ## Getting started
 Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding.
-* Clone this repo
+1. Clone this repo
 ```bash
 git clone https://github.com/the4thparadigm/denvercrime.git
 ```
-* Create a virtual environment called `venv` in the project root directory and activate it
+2. Create a virtual environment called `venv` in the project root directory and activate it
 ```bash
 virtualenv --python=python3 venv  # confirm any messages to create
 echo "source venv/bin/activate" >> source_me.sh
 source source_me.sh
 ```
-* Create your own branch to work on
+3. Create your own branch to work on
 ```bash
 cd denvercrime
 git branch mybranch
 ```
-* Install packages from requirements.txt using `pip` in the project root directory
+4. Install packages from requirements.txt using `pip` in the project root directory
 ```bash
 pip3 install -r requirements.txt
 ```
-* System environment
+5. System environment
   * Update PYTHONPATH with the `src` folder/directory so python can import packages from `src`
   * Create environment variable that points to config file so python can find it
 ```bash
@@ -39,12 +39,13 @@ echo "export PYTHONPATH=src:$PYTHONPATH" >> source_me.sh
 echo "export CONFIGYAML=config/config.yml.template" >> source_me.sh
 source source_me.sh
 ```
-* Download the data from kaggle
+6. Download the data from kaggle
   * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
   * Copy the `kaggle.json` file to `$HOME/.kaggle`
   ```bash
-  mkdir $HOME/.kaggle
+  mkdir -f $HOME/.kaggle
   mv $HOME/Downloads/kaggle.json $HOME/.kaggle/kaggle.json
+  chmod 600 $HOME/.kaggle/kaggle.json  # only you can read/write to it
   ```
   * Navigate to the project directory and un-zip the data
   ```bash
