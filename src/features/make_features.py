@@ -103,8 +103,8 @@ def make_predictors(df, dates, hoodname, category):
         ).fillna(0)
         feat.columns =  feat_cols
         feat.index = [date]
-        feats.append(feat)
-    return(feat)
+        feats = feats.append(feat, sort=False)
+    return(feats)
 
 def make_responses(df, dates, hoodname, category):
     """ Create response variables.
@@ -120,10 +120,19 @@ def make_responses(df, dates, hoodname, category):
     """
     sub = df[
         (df['NEIGHBORHOOD_ID'] == hoodname) &
-        (df['REPORTED_DATE'].isin(dates)) &
         (df['OFFENSE_CATEGORY_ID'] == category)
     ]
-    return sub.groupby('REPORTED_DATE').count()['INCIDENT_ID']
+    resps = pd.DataFrame(columns=[category])
+    for date in dates:
+        subdate = sub[sub['REPORTED_DATE'] == date]
+        resp = subdate.groupby('REPORTED_DATE').count().fillna(0)['INCIDENT_ID']
+        if resp.shape[0] == 0:
+            resp = pd.DataFrame({category: [0]}, index=[date])
+        else:
+            resp.name = date
+            resp.index = [category]
+        resps = resps.append(resp, sort=False)
+    return(resps)
 
 def main():
     """ Entry point.
@@ -137,13 +146,17 @@ def main():
         crime.to_pickle('data/processed/crime.pkl')
     pred = make_predictors(
         crime,
-        [dt.datetime.strptime('2018-04-22', '%Y-%m-%d')],
+        [dt.datetime.strptime('2018-04-22', '%Y-%m-%d'), 
+         dt.datetime.strptime('2018-04-21', '%Y-%m-%d')],
         'stapleton',
         'burglary'
     )
+    dates = pd.date_range(
+            dt.datetime.strptime('2015-01-02', '%Y-%m-%d'),
+            dt.datetime.strptime('2019-02-07', '%Y-%m-%d'), periods=500).normalize().tolist()
     resp = make_responses(
         crime, 
-        [dt.datetime.strptime('2018-04-22', '%Y-%m-%d')],
+        dates,
         'stapleton',
         'burglary'
     )
