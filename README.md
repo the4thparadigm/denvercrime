@@ -11,21 +11,45 @@ This project analyzes data from the city of Denver, and can be found [here](http
 Because the data are updated regularly, we must choose a snapshot to ensure that everyone has the same data. We will be using version 25, which can be accessed at https://www.kaggle.com/paultimothymooney/denver-crime-data/version/25. Make sure you download this version, NOT the latest version.
 
 ## Getting started
-Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding. 
-* Clone this repo 
-* Create your own branch to work on
-* Create a virtual environment by running `virtualenv venv` in the project root directory. Activate it with `source venv\bin\activate`
-* Install packages from requirements.txt by running `pip3 install -r requirements.txt` in the project root directory
-* System environment
-  * Append the repo src folder to PYTHONPATH to allow module imports
+Please consult the [*Project setup*](https://github.com/the4thparadigm/hitchhikers_guide/tree/master/ds_projects/project_set_up) section of the hitchhiker's guide before proceeding.
+1. Clone this repo
+```bash
+git clone https://github.com/the4thparadigm/denvercrime.git
+```
+2. Create a virtual environment called `venv` in the project root directory and activate it
+```bash
+virtualenv --python=python3 venv  # confirm any messages to create
+echo "source venv/bin/activate" >> source_me.sh
+source source_me.sh
+```
+3. Create your own branch to work on
+```bash
+cd denvercrime
+git branch mybranch
+```
+4. Install packages from requirements.txt using `pip` in the project root directory
+```bash
+pip3 install -r requirements.txt
+```
+5. System environment
+  * Update PYTHONPATH with the `src` folder/directory so python can import packages from `src`
   * Create environment variable that points to config file so python can find it
-* Download the data from kaggle
-  * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
-  * In a terminal, navigate to your home directory
-  * `mkdir .kaggle`
-  * `mv Downloads/kaggle.json .kaggle/kaggle.json`
-  * Navigate to the project directory
-  * `kaggle datasets download -d paultimothymooney/denver-crime-data/version/25`
-  * `mv denver-crime-data.zip data/raw`
-  * `unzip denver-crime-data.zip`
-
+```bash
+echo "export PYTHONPATH=src:$PYTHONPATH" >> source_me.sh
+echo "export CONFIGYAML=config/config.yml.template" >> source_me.sh
+source source_me.sh
+```
+6. Download the data from kaggle
+ * Get a kaggle API token from your profile page (kaggle.com/username/account --> Create new API token)
+ * Copy the `kaggle.json` file to `$HOME/.kaggle`
+ ```bash
+ mkdir -f $HOME/.kaggle
+ mv $HOME/Downloads/kaggle.json $HOME/.kaggle/kaggle.json
+ chmod 600 $HOME/.kaggle/kaggle.json  # only you can read/write to it
+ ```
+ * Navigate to the project directory and un-zip the data
+ ```bash
+ kaggle datasets download -d paultimothymooney/denver-crime-data/version/25
+ mv denver-crime-data.zip data/raw
+ unzip denver-crime-data.zip`
+ ```
